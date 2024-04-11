@@ -11,5 +11,6 @@ output = name()
 
 # Print the greeting
 def run_program(event):
+    print("THIS IS THE TEST")
     output_div = document.querySelector("#output")
     output_div.innerText = output

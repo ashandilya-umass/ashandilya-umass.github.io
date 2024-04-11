@@ -1,12 +1,13 @@
 from pyscript import document
 
 
-def drug(name='Aducanumab'):
-    #name = input("Enter your name: ")
-    return name
+def name():
+    user_input= input("Enter your name: ")
+    greeting = f'Hello {user_input}! Welcome to the website!'
+    return greeting
 
 # Call the function
-output = drug()
+output = name()
 
 # Print the greeting
 def run_program(event):

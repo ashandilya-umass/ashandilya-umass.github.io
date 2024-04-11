@@ -27,6 +27,6 @@ def run_program():
     
     # Add event listener to the button
     submit_button.addEventListener("click", on_submit)
+    
 
-# Call the function
 run_program()

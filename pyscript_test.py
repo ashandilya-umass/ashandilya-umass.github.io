@@ -1,4 +1,4 @@
-from pyscript import document, run
+from pyscript import document
 
 def run_program():
     # Create an input field
@@ -27,9 +27,6 @@ def run_program():
     
     # Add event listener to the button
     submit_button.addEventListener("click", on_submit)
-    
+
 # Call the function
 run_program()
-
-# Run the program
-run()

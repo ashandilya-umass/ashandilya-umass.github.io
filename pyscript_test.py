@@ -31,4 +31,4 @@ def on_submit(event):
     document.body.removeChild(submit_button)
 
 # Call the function
-run_program(None)
+on_submit(None)

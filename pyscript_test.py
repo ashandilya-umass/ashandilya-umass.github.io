@@ -4,7 +4,7 @@ def run_program(event):
     # Get the input field value
     user_input = document.getElementById("name").value
     if user_input != "":
-        greeting = f'Hello, {user_input}! Welcome cringer'
+        greeting = f'Hello, {user_input}! Welcome cringer!'
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")

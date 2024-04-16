@@ -1,6 +1,6 @@
 from pyscript import document
 
-def run_program():
+def run_program(event):
     # Create an input field
     input_field = document.createElement("input")
     input_field.id = "name"
@@ -27,4 +27,4 @@ def run_program():
     # Add event listener to the button
     submit_button.addEventListener("click", on_submit)
 
-run_program()
+run_program(None)

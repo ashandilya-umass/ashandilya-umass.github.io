@@ -11,13 +11,11 @@
         }
 
         .title{
-            padding: 20px;
-            text-align: center;
+            text-align: left;
             position: relative;
             font-family: georgia, serif;
-            font-size: 400%;
+            font-size: 200%;
             color: #ddd;
-            margin-top: 5%;
         }
         
 
@@ -102,36 +100,101 @@
 
         .left{
             float: left;
-            width: 75%;
-            text-align: center
+            width: 65%;
+            text-align: center;
         }
+
         .right{
             float: right;
-            width: 25%
+            width: 35%;
         }
         
         #submit-button {
             background-color: red;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .textbox {
+            width: 90%;
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            margin-top: 30px;
+            margin-left: 10px;
+            color: white;
+            font-family: georgia, serif;
+            font-size: 135%;
+        }
+
+        .smile_images {
+            width: 100%;
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            color: white;
+            font-family: georgia, serif;
+            font-size: 130%;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="overlay">
     <div class="content-box">
-    <div class="dropdown">
-        <button class="dropdown-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-            </svg>
-        </button>
-        <div class="dropdown-content">
-            <a href="test.html" class="dropdown-item">Home</a>
-            <a href="howitworks.html" class="dropdown-item">How it Works</a>
-            <a href="thescience.html" class="dropdown-item">The Science</a>
-            <a href="thecode.html" class="dropdown-item">The Code</a>
-            <a href="about.html" class="dropdown-item">About</a>
+        <div class="dropdown">
+            <button class="dropdown-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                </svg>
+            </button>
+            <div class="dropdown-content">
+                <a href="test.html" class="dropdown-item">Home</a>
+                <a href="howitworks.html" class="dropdown-item">How it Works</a>
+                <a href="thescience.html" class="dropdown-item">The Science</a>
+                <a href="thecode.html" class="dropdown-item">The Code</a>
+                <a href="about.html" class="dropdown-item">About</a>
+            </div>
         </div>
-    </div>
+        <div class = "left">
+            <div class="textbox">
+                <div class = "title">
+                    Drawing Structures
+                </div>
+                <p>SMILES (Simplified Molecular Input Line Entry System) codes are a compact and simple way to represent the structure of chemical molecules using atomic symbols and ASCII strings. They are crucial in computer software analysis and drawing outputs in the field of chemistry and biochemistry. SMILES codes provide a standardized format that allows scientists and researchers to easily share, store, and analyze molecular structures in databases and publications. One of the key advantages of SMILES codes is their simplicity and readability. Unlike more complex formats, SMILES codes are concise and easy to understand. This makes them ideal for use in computer algorithms and software tools that require rapid processing and manipulation of molecular structures. 
+                    Furthermore, SMILES codes are versatile and can represent a wide range of molecular structures, including complex organic compounds, inorganic molecules, and biomolecules. This versatility makes them valuable in various fields, such as drug discovery, chemical informatics, and computational chemistry, where the ability to quickly and accurately represent molecular structures is essential for research and development.
+                    Overall, SMILES codes play a crucial role in computer software analysis and drawing outputs by providing a standardized and efficient way to represent molecular structures. Their simplicity, readability, and versatility make them indispensable tools in the field of chemistry and biochemistry.
+                </p>
+                <p>Click <a href="https://www.cheminfo.org/flavor/malaria/Utilities/SMILES_generator___checker/index.html" target="_blank">here</a> to create your own SMILE code drawings.</p>
+            </div>
+        </div>
+        <div class = "right">
+            <div class = "smile_images">
+                <p> Examples of Molecular SMILES Conversions:</p>
+                <div class = "benzene">
+                    <img src="C:\Users\ashan\OneDrive\Desktop\CS119\Honors Thesis Imagesbenzene.jpg" alt="Description of the image" width="475" height="250">
+                </div>
+                <div class = "caffeine">
+                    <img src="C:\Users\ashan\OneDrive\Desktop\CS119\Honors Thesis Images.jpg" alt="Description of the image" width="475" height="250">
+                </div>
+            </div>
+        </div>
+    <!DOCTYPE html>
+
     <!-- Text input box with submit button -->
     <!-- <div id="input">
         <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">

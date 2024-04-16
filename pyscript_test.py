@@ -11,22 +11,24 @@ def run_program(event):
     submit_button.textContent = "Submit"
     document.body.appendChild(submit_button)
     
-    # Function to handle the button click
-    def on_submit(event):
-        user_input = input_field.value
-        greeting = f'Hello {user_input}! Welcome to the website!'
-        
-        # Display the greeting in the browser
-        output_div = document.createElement("div")
-        output_div.textContent = greeting
-        document.body.appendChild(output_div)
-        
-        # Remove the input field and button
-        document.body.removeChild(input_field)
-        document.body.removeChild(submit_button)
+    
     
     # Add event listener to the button
     submit_button.addEventListener("click", on_submit)
+
+# Function to handle the button click
+def on_submit(event):
+    user_input = input_field.value
+    greeting = f'Hello {user_input}! Welcome to the website!'
+        
+    # Display the greeting in the browser
+    output_div = document.createElement("div")
+    output_div.textContent = greeting
+    document.body.appendChild(output_div)
+        
+    # Remove the input field and button
+    document.body.removeChild(input_field)
+    document.body.removeChild(submit_button)
 
 # Call the function
 run_program(None)

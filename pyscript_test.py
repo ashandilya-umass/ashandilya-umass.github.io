@@ -26,7 +26,27 @@ def run_program():
         document.body.removeChild(submit_button)
     
     # Add event listener to the button
-    submit_button.addEventListener("click", on_submit)
+    submit_button.addEventListener("click", lambda event: on_submit(event))
+
+# Call the function
+run_program()
+
+
     
 
-run_program()
+# from pyscript import document
+
+
+# def drug(name='Aducanumab'):
+#     #name = input("Enter your name: ")
+#     return name
+
+# # Call the function
+# output = drug()
+
+# # Print the greeting
+# def run_program(event):
+#     output_div = document.querySelector("#output")
+#     output_div.innerText = output
+    
+    

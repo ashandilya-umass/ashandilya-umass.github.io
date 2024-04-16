@@ -1,16 +1,290 @@
-<!DOCTYPE html>  
-<html lang="en">  
-  <head>  
-    <meta charset="utf-8" />  
-    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDAICINE - Honors Thesis - Ashwin Shandilya</title>
-    <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
-    <link rel="stylesheet" src="https://pyscript.net/releases/2024.3.2/core.css">  
-  </head>  
-  <body>
-    <input id="name" type="text" placeholder="Enter your name">
-    <button py-click="run_program">unsubmit</button>
-    <div id="output"></div>
-    <script type="py" src="./pyscript_test.py" config="./pyscript_test.json"></script>  
-  </body>  
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .title{
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            font-family: georgia, serif;
+            font-size: 400%;
+            color: #ddd;
+            margin-top: 5%;
+        }
+        
+
+        .subtitle{
+            position: relative;
+            font-size: 40%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2023/01/14/19/50/ai-generated-7718952_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(84, 202, 193, 0.5);
+            overflow: auto;
+            position: relative;
+
+        }
+
+        .content-box {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: auto;
+            margin-top: 2.5%;
+            border-radius: 10px;
+            background-color: rgba(42, 42, 44, 0.8);
+            overflow: auto;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 200%;
+        }
+        
+
+        .table {
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 210%;
+            text-align: left;
+            color: #ddd;
+            float: right;
+            margin-right: 100px;
+        }
+        
+        
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+        .overflow-hidden{
+            text-size-adjust: 100%;
+            font-feature-settings: normal;
+            font-family: Söhne, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-variation-settings: normal;
+            tab-size: 4;
+            --gizmo-store-gray-550: #6e707f;
+            color-scheme: dark;
+            line-height: inherit;
+            -webkit-font-smoothing: antialiased;
+            border: 5px solid #000000;
+            box-sizing: border-box;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgba(69,89,164,.5);
+            --tw-ring-offset-shadow: 0 0 transparent;
+            --tw-ring-shadow: 0 0 transparent;
+            position: relative;
+            display: flex;
+            width: 75%;
+            flex-grow: 1;
+            flex-direction: column;
+            overflow: hidden;
+            border-width: 1px;
+            border-color: var(--border-heavy);
+            --tw-bg-opacity: 1;
+            background-color: rgba(84,84,84);
+            color: rgb(255, 255, 255);
+            --tw-shadow: 0 0 0 2px rgba(52,53,65,.95);
+            --tw-shadow-colored: 0 0 0 2px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow);
+            align-self: center;
+            margin-top: 20%;
+            margin-inline: auto;
+        }
+
+        .left{
+            float: left;
+            width: 75%;
+            text-align: center
+        }
+        .right{
+            float: right;
+            width: 25%
+        }
+        .container{
+            display: inline-block;
+            width: 100%;
+        }
+        
+        #submit-button {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+    <div class="content-box">
+    <div class="dropdown">
+        <button class="dropdown-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </button>
+        <div class="dropdown-content">
+            <a href="drawingstructures.html" class="dropdown-item">Drawing Structures</a>
+            <a href="howitworks.html" class="dropdown-item">How it Works</a>
+            <a href="thescience.html" class="dropdown-item">The Science</a>
+            <a href="thecode.html" class="dropdown-item">The Code</a>
+            <a href="about.html" class="dropdown-item">About</a>
+        </div>
+    </div>
+    <div class = "container">
+        <div class = "left">
+            <div class="title">
+                medAIcine
+                <div class="subtitle">
+                    AI Drug Development
+                </div>
+            </div>
+            <div class="overflow-hidden [&amp;:has(textarea:focus)]:border-token-border-xheavy [&amp;:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-white dark:bg-gray-800 shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
+                <textarea id="prompt-textarea" tabindex="0" data-id="root" rows="1" placeholder="What medical function do you want this drug to have?" class="m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4" style="max-height: 200px; height: 52px; overflow-y: hidden;"></textarea>
+                <!-- <button disabled="" class="absolute md:bottom-3 md:right-3 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent right-2 dark:disabled:bg-white disabled:bg-black disabled:opacity-10 disabled:text-gray-400 enabled:bg-black text-white p-0.5 border border-black rounded-lg dark:border-white dark:bg-white bottom-1.5 transition-colors" data-testid="send-button">
+                    <span class="" data-state="closed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white dark:text-black">
+                            <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </button> -->
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+        <div class = "right">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <th scope="row"><a href="get_started.html">Get Started</a></th>
+                    </tr> -->
+                    <tr>
+                        <th scope="row"><a href="drawingstructures.html">Drawing Structures</a></th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="howitworks.html">How it Works</a></th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="thescience.html">The Science</a></th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="thecode.html">The Code</a></th>
+                    </tr>
+                    <tr>
+            
+                        <th scope="row"><a href="about.html">About</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    <!-- Text input box with submit button -->
+    <!-- <div id="input">
+        <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">
+        <button type="submit" value="sub" id="submit-button">Submit</button>
+    </div>     -->
+    </div>
+    </div> 
+
+<!--    <div class="search-bar">
+        <input type="text" placeholder="What medical function do you want this drug to have?">
+        <button type="submit">What medical function do you want this drug to have?</button>
+    </div>
+-->
+    <script>
+//        function myFunction() {
+    //        var dropdownContent = document.getElementById("myDropdown");
+     //       dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+       // }
+
+        //Event Listener for submit button
+      //  function submit() {
+    //        let submitter = document.getElementById("submit-button");
+  //          submitter.addEventListener(() => )
+//        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
 </html>
+
+
+<!--Practice with making a table:-->
+
+
+
+
+
+
+
+
+<!--Start Links-->

@@ -1,34 +1,30 @@
 from pyscript import document
 
-def run_program(event):
+def run_program():
     # Create an input field
     input_field = document.createElement("input")
-    input_field.placeholder = "Enter your name"
+    input_field.id = "name"
+    input_field.type = "text"
     document.body.appendChild(input_field)
     
-    # Create a button to submit the input
+    # Create a submit button
     submit_button = document.createElement("button")
+    submit_button.id = "submit-btn"
     submit_button.textContent = "Submit"
     document.body.appendChild(submit_button)
-    
-    
+
+    # Create a div for displaying the output
+    output_div = document.createElement("div")
+    output_div.id = "output"
+    document.body.appendChild(output_div)
+
+    # Function to handle the button click
+    def on_submit(event):
+        user_input = document.getElementById("name").value
+        greeting = f'Hello, {user_input}!'
+        output_div.textContent = greeting
     
     # Add event listener to the button
     submit_button.addEventListener("click", on_submit)
 
-# Function to handle the button click
-def on_submit(event):
-    user_input = input_field.value
-    greeting = f'Hello {user_input}! Welcome to the website!'
-        
-    # Display the greeting in the browser
-    output_div = document.createElement("div")
-    output_div.textContent = greeting
-    document.body.appendChild(output_div)
-        
-    # Remove the input field and button
-    document.body.removeChild(input_field)
-    document.body.removeChild(submit_button)
-
-# Call the function
-on_submit(None)
+run_program()

@@ -85,8 +85,8 @@ def run_program(event):
                 # print("Failed to retrieve the webpage. Status code:", response.status_code)
                 output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
                 
-            output_div = document.getElementById("output")
-            output_div.textContent = output
+    output_div = document.getElementById("output")
+    output_div.textContent = output
     
     # def confirmation(word):
     #     while True:

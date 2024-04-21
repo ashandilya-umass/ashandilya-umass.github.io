@@ -64,6 +64,7 @@ def run_program(event):
     # Get the input field value
     user_input = document.getElementById("name").value
     user_input = user_input.lower()
+    output = user_input
     for disease in word_bank_diseases:
         if disease in user_input:
             # user_input_split = confirmation(disease)

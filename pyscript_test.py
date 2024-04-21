@@ -63,74 +63,92 @@ word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
 def run_program(event):
     # Get the input field value
     user_input = document.getElementById("name").value
-    if user_input.lower()!="quit":
-        user_input = user_input.lower()
-        for disease in word_bank_diseases:
-            if disease in user_input:
-                user_input_split = confirmation(disease)
-                word = disease
-    
-    def confirmation(word):
-        while True:
-            # print(word)
+    user_input = user_input.lower()
+    for disease in word_bank_diseases:
+        if disease in user_input:
+            # user_input_split = confirmation(disease)
+            word = disease
+            
+            url = website_links[word]
+            response = requests.get(url)
 
-            # Ask if the user would like the random structure here, if YES: print it out here, if NO: move on to asking if they want more
-            # info about their inputted disease
-
-            confirm = input(f'Would you like to know more about {word}? (yes or no)')
-            confirm = confirm.lower()
-            print(confirm)
-            if confirm == 'yes':
-                print(f'Understood, here is some information on {word}: ')
-
-                # Outputs the title of the website:
-                url = website_links[word]
-                response = requests.get(url)
-
-                if response.status_code == 200:
-                    soup = BeautifulSoup(response.text, 'html.parser')
-                    title = soup.title.string
-                    print("Title:", title)
-                else:
-                    print("Failed to retrieve the webpage. Status code:", response.status_code)
-
-                # Outputs the information on the website:
-                url = website_links[word]
-                response = requests.get(url)
-
-                if response.status_code == 200:
-                    soup = BeautifulSoup(response.text, 'html.parser')
-                    paragraphs = soup.find_all('p')
-                    info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
-                else:
-                    print("Failed to retrieve the webpage. Status code:", response.status_code)
-
-                window = tk.Tk()
-                window.title(f"More information on {word}")
-
-                # Configure window size
-                window.geometry("800x600")
-
-                # Create a scrolled text area
-                text_area = scrolledtext.ScrolledText(window, wrap=tk.WORD, width=100, height=30)
-                text_area.insert(tk.INSERT, info_text)
-                text_area.pack(padx=10, pady=10)
-
-                # Create a clickable link
-                link_label = tk.Label(window, text="Click here to visit Wikipedia.com", fg="blue", cursor="hand2")
-                link_label.pack(pady=10)
-
-                link_label.bind("<Button-1>", lambda e: open_link())
-
-                window.mainloop()
-                return word
-            elif confirm == 'no':
-                print(f"Got it, thank you for trying us out!")
-                return "next"
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                title = soup.title.string
+                output = f'Title: {title}'
+                soup = BeautifulSoup(response.text, 'html.parser')
+                paragraphs = soup.find_all('p')
+                info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
+                output = output + '\n' + info_text + '\n' + f'Website Link: {url}'
+                # print("Title:", title)
             else:
-                print(f"Enter yes or no")
-    def open_link():
-        webbrowser.open(website_links[word])
+                # print("Failed to retrieve the webpage. Status code:", response.status_code)
+                output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
+                
+            output_div = document.getElementById("output")
+            output_div.textContent = output
+    
+    # def confirmation(word):
+    #     while True:
+    #         # print(word)
+
+    #         # Ask if the user would like the random structure here, if YES: print it out here, if NO: move on to asking if they want more
+    #         # info about their inputted disease
+
+    #         confirm = input(f'Would you like to know more about {word}? (yes or no)')
+    #         confirm = confirm.lower()
+    #         print(confirm)
+    #         if confirm == 'yes':
+    #             print(f'Understood, here is some information on {word}: ')
+
+    #             # Outputs the title of the website:
+    #             url = website_links[word]
+    #             response = requests.get(url)
+
+    #             if response.status_code == 200:
+    #                 soup = BeautifulSoup(response.text, 'html.parser')
+    #                 title = soup.title.string
+    #                 print("Title:", title)
+    #             else:
+    #                 print("Failed to retrieve the webpage. Status code:", response.status_code)
+
+    #             # Outputs the information on the website:
+    #             url = website_links[word]
+    #             response = requests.get(url)
+
+    #             if response.status_code == 200:
+    #                 soup = BeautifulSoup(response.text, 'html.parser')
+    #                 paragraphs = soup.find_all('p')
+    #                 info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
+    #             else:
+    #                 print("Failed to retrieve the webpage. Status code:", response.status_code)
+
+    #             window = tk.Tk()
+    #             window.title(f"More information on {word}")
+
+    #             # Configure window size
+    #             window.geometry("800x600")
+
+    #             # Create a scrolled text area
+    #             text_area = scrolledtext.ScrolledText(window, wrap=tk.WORD, width=100, height=30)
+    #             text_area.insert(tk.INSERT, info_text)
+    #             text_area.pack(padx=10, pady=10)
+
+    #             # Create a clickable link
+    #             link_label = tk.Label(window, text="Click here to visit Wikipedia.com", fg="blue", cursor="hand2")
+    #             link_label.pack(pady=10)
+
+    #             link_label.bind("<Button-1>", lambda e: open_link())
+
+    #             window.mainloop()
+    #             return word
+    #         elif confirm == 'no':
+    #             print(f"Got it, thank you for trying us out!")
+    #             return "next"
+    #         else:
+    #             print(f"Enter yes or no")
+    # def open_link():
+    #     webbrowser.open(website_links[word])
     # if user_input != "":
     #     greeting = f'Hello, {user_input}! Welcome to the Website!'
         

@@ -2,15 +2,13 @@ from pyscript import document
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import tkinter as tk
-from tkinter import scrolledtext
-import webbrowser
-import rdkit
-from rdkit import Chem
-import plotly.express as px
-from rdkit.Chem.Draw import rdMolDraw2D
-from rdkit import Chem
-import random
+# import webbrowser
+# import rdkit
+# from rdkit import Chem
+# import plotly.express as px
+# from rdkit.Chem.Draw import rdMolDraw2D
+# from rdkit import Chem
+# import random
 
 website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",

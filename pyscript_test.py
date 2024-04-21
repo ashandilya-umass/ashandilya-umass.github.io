@@ -10,7 +10,12 @@ import pandas as pd
 # from rdkit import Chem
 # import random
 
-website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+
+
+
+
+def run_program(event):
+    website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -51,14 +56,10 @@ website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disea
                  'coronavirus': "https://en.wikipedia.org/wiki/COVID-19",
                  'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
 
-word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
-                 'acquired immunodeficiency syndrome','dementia','diabetes','depression','anxiety','hemorrhoid','yeast infection','lupus','shingles',
-                 'psoriasis','bronchitis','pneumonia','strep','flu', 'hbp',
-                 'high blood pressure','hypertension','cancer','diarrhea','covid','coronavirus','arthritis']
-
-
-
-def run_program(event):
+    word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
+                    'acquired immunodeficiency syndrome','dementia','diabetes','depression','anxiety','hemorrhoid','yeast infection','lupus','shingles',
+                    'psoriasis','bronchitis','pneumonia','strep','flu', 'hbp',
+                    'high blood pressure','hypertension','cancer','diarrhea','covid','coronavirus','arthritis']
     # Get the input field value
     user_input = document.getElementById("name").value
     user_input = user_input.lower()

@@ -72,19 +72,18 @@
 
         .dropdown {
             position: relative;
+            display:block;
+            float:right;
         }
 
         .dropdown-content {
             display: none;
+            float:right;
             position: relative;
-            background-color: #f9f9f9;
+            background-color: rgba(42, 42, 44, 1);
             min-width: 160px;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
 
         .dropdown-content a {
@@ -92,6 +91,11 @@
             text-decoration: none;
             display: block;
             text-align: left;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 210%;
+            background-color: rgba(42, 42, 44, .8);
+            color:#ddd;
         }
 
         .search-bar {
@@ -103,8 +107,9 @@
         }
         
         .dropdown-btn {
-            align-items: left;
-            position: left;
+            align-items: right;
+            position: right;
+            float:right;
         }
         
         .table {
@@ -171,11 +176,10 @@
         .left{
             float: left;
             width: 75%;
-            text-align: center
         }
         .right{
-            float: right;
-            width: 25%
+            float: left;
+            width: 25%;
         }
         .container{
             display: inline-block;
@@ -185,6 +189,9 @@
         #submit-button {
             background-color: red;
         }
+
+        .dropdown-content a:hover {background-color: rgba(52, 52, 54, .8);}
+        .show {display:block;}
     </style>
 </head>
 <body>
@@ -192,37 +199,12 @@
     <div class="content-box">
     <div class = "container">
         <div class = "left">
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                </svg>
-                </button>
-            <div class="dropdown-content">
-                <a href="drawingstructures.html" class="dropdown-item">Drawing Structures</a>
-                <a href="howitworks.html" class="dropdown-item">How it Works</a>
-                <a href="thescience.html" class="dropdown-item">The Science</a>
-                <a href="thecode.html" class="dropdown-item">The Code</a>
-                <a href="about.html" class="dropdown-item">About</a>
-            </div>
-        </div>
             <div class="title">
                 medAIcine
                 <div class="subtitle">
                     AI Drug Development
                 </div>
             </div>
-            <!--<div class="overflow-hidden [&amp;:has(textarea:focus)]:border-token-border-xheavy [&amp;:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-white dark:bg-gray-800 shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
-                <textarea id="prompt-textarea" tabindex="0" data-id="root" rows="1" placeholder="What medical function do you want this drug to have?" class="m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4" style="max-height: 200px; height: 52px; overflow-y: hidden;"></textarea>
-                 <button disabled="" class="absolute md:bottom-3 md:right-3 dark:hover:bg-gray-900 dark:disabled:hover:bg-transparent right-2 dark:disabled:bg-white disabled:bg-black disabled:opacity-10 disabled:text-gray-400 enabled:bg-black text-white p-0.5 border border-black rounded-lg dark:border-white dark:bg-white bottom-1.5 transition-colors" data-testid="send-button">
-                    <span class="" data-state="closed">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-white dark:text-black">
-                            <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </span>
-                </button> 
-                <button type="submit">Submit</button>
-            </div>-->
             <div id="output" class = "textbox"></div>
             <div class="overflow-hidden [&amp;:has(textarea:focus)]:border-token-border-xheavy [&amp;:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-white dark:bg-gray-800 shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]">
                 <textarea id="name" tabindex="0" data-id="root" rows="1" placeholder="What medical function do you want this drug to have?" class="m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4" style="max-height: 200px; height: 52px; overflow-y: hidden;"></textarea>
@@ -230,7 +212,7 @@
             </div>
             <script type="py" src="./pyscript_test.py" config="./pyscript_test.json"></script>
         </div>
-        <div class = "right">
+        <div class="right">
             <table class="table">
                 <thead>
                     <tr>
@@ -238,9 +220,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <th scope="row"><a href="get_started.html">Get Started</a></th>
-                    </tr> -->
                     <tr>
                         <th scope="row"><a href="drawingstructures.html">Drawing Structures</a></th>
                     </tr>
@@ -259,41 +238,27 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        </div>
-    <!-- Text input box with submit button -->
-    <!-- <div id="input">
-        <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">
-        <button type="submit" value="sub" id="submit-button">Submit</button>
-    </div>     -->
+            </div>
+    </div>
+    </div>
     </div>
     </div> 
 
-<!--    <div class="search-bar">
-        <input type="text" placeholder="What medical function do you want this drug to have?">
-        <button type="submit">What medical function do you want this drug to have?</button>
-    </div>
--->
-    <script>
-//        function myFunction() {
-    //        var dropdownContent = document.getElementById("myDropdown");
-     //       dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-       // }
 
-        //Event Listener for submit button
-      //  function submit() {
-    //        let submitter = document.getElementById("submit-button");
-  //          submitter.addEventListener(() => )
-//        }
+    <script>
+        function myFunction() {
+            var dropdownContent = document.getElementById("myDropdown");
+            dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+        }
 
         window.onclick = function(event) {
-            if (!event.target.matches('.dropdown button')) {
+            if (!event.target.matches('.dropdown-btn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 var i;
                 for (i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
                     }
                 }
             }
@@ -301,15 +266,3 @@
     </script>
 </body>
 </html>
-
-
-<!--Practice with making a table:-->
-
-
-
-
-
-
-
-
-<!--Start Links-->

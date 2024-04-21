@@ -15,7 +15,7 @@
             position: relative;
             font-family: georgia, serif;
             font-size: 200%;
-            color: #ddd;
+            color: white;
         }
         
 
@@ -67,9 +67,7 @@
             z-index: 1;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        
 
         .dropdown-content a {
             padding: 12px 16px;
@@ -151,24 +149,57 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .dropdown-btn {
+            align-items: right;
+            position: right;
+            float:right;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 210%;
+            background-color: rgba(42, 42, 44, .8);
+            color:#ddd;
+        }
+
+        .dropdown {
+            position: relative;
+            display:block;
+            float:right;
+        }
+
+        .dropdown-content {
+            display: none;
+            float:right;
+            position: relative;
+            background-color: rgba(42, 42, 44, 1);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
     <div class="overlay">
     <div class="content-box">
         <div class="dropdown">
-            <button class="dropdown-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                </svg>
+            <button class="dropdown-btn" onclick="myFunction()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
             </button>
-            <div class="dropdown-content">
-                <a href="index.html" class="dropdown-item">Home</a>
-                <a href="howitworks.html" class="dropdown-item">How it Works</a>
-                <a href="thescience.html" class="dropdown-item">The Science</a>
-                <a href="thecode.html" class="dropdown-item">The Code</a>
-                <a href="about.html" class="dropdown-item">About</a>
-            </div>
+        <div class="dropdown-content" id="myDropdown">
+            <a href="tester.html" class="dropdown-item">Home</a>
+            <a href="howitworks.html" class="dropdown-item">How it Works</a>
+            <a href="thescience.html" class="dropdown-item">The Science</a>
+            <a href="thecode.html" class="dropdown-item">The Code</a>
+            <a href="about.html" class="dropdown-item">About</a>
         </div>
         <div class = "left">
             <div class="textbox">
@@ -194,56 +225,26 @@
             </div>
         </div>
     <!DOCTYPE html>
-
-    <!-- Text input box with submit button -->
-    <!-- <div id="input">
-        <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">
-        <button type="submit" value="sub" id="submit-button">Submit</button>
-    </div>     -->
     </div>
     </div> 
+<script>
+    function myFunction() {
+        var dropdownContent = document.getElementById("myDropdown");
+        dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+    }
 
-<!--    <div class="search-bar">
-        <input type="text" placeholder="What medical function do you want this drug to have?">
-        <button type="submit">What medical function do you want this drug to have?</button>
-    </div>
--->
-    <script>
-//        function myFunction() {
-    //        var dropdownContent = document.getElementById("myDropdown");
-     //       dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-       // }
-
-        //Event Listener for submit button
-      //  function submit() {
-    //        let submitter = document.getElementById("submit-button");
-  //          submitter.addEventListener(() => )
-//        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropdown button')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
                 }
             }
         }
-    </script>
+    }
+</script>
 </body>
 </html>
-
-
-<!--Practice with making a table:-->
-
-
-
-
-
-
-
-
-<!--Start Links-->

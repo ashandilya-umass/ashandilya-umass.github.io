@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDAICINE - Honors Thesis - Ashwin Shandilya</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .title{
+            text-align: left;
+            position: relative;
+            font-family: georgia, serif;
+            font-size: 200%;
+            color: white;
+        }
+        
+
+        .subtitle{
+            position: relative;
+            font-size: 40%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2023/01/14/19/50/ai-generated-7718952_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(84, 202, 193, 0.5);
+            overflow: auto;
+            position: relative;
+
+        }
+
+        .content-box {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: auto;
+            margin-top: 2.5%;
+            border-radius: 10px;
+            background-color: rgba(42, 42, 44, 0.8);
+            overflow: auto;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 200%;
+        }        
+        
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+    
+
+        .left{
+            float: left;
+            width: 75%;
+            text-align: center
+        }
+        .right{
+            float: right;
+            width: 25%
+        }
+        
+        #submit-button {
+            background-color: red;
+        }
+
+        .textbox {
+            width: 90%;
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            margin-top: 30px;
+            margin-left: 10px;
+            color: white;
+            font-family: georgia, serif;
+            font-size: 135%;
+        }
+
+        .dropdown-btn {
+            align-items: right;
+            position: right;
+            float: right;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 210%;
+            background-color: rgba(42, 42, 44, .8);
+            color:#ddd;
+        }
+
+        .dropdown {
+            position: relative;
+            display:block;
+            float:right;
+        }
+
+        .dropdown-content {
+            display: none;
+            float:right;
+            position: relative;
+            background-color: rgba(42, 42, 44, 1);
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+    <div class="content-box">
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="myFunction()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+            </button>
+        <div class="dropdown-content" id="myDropdown">
+            <a href="tester.html" class="dropdown-item">Home</a>
+            <a href="drawingstructures.html" class="dropdown-item">Drawing Structures</a>
+            <a href="thescience.html" class="dropdown-item">The Science</a>
+            <a href="thecode.html" class="dropdown-item">The Code</a>
+            <a href="about.html" class="dropdown-item">About</a>
+        </div>
+        <div class = "textbox">
+            <div class = "title">
+                How it Works
+            </div>
+            <p>
+                The base for this website is a CSV file containing the names for, structures of, and Simplified Molecular Input Line Entry System (SMILES) codes for all known drugs currently used for medical treatments. After a user enters a command, the website iterates through their input for the disease of which they request more information. 
+
+After isolating this disease, the website’s code parses the CSV file using a list of the most commonly used drugs in treating that specific disease. After identifying the presence of these drugs within the data, it extracts their associated SMILES codes and stores them as a list. 
+
+The code then parses the list of SMILES codes for the most commonly recurring functional groups, or the base molecules from which drugs are created. It then randomly picks from these isolated functional groups and generates a theoretical two-dimensional structure using a SMILES code-reader python package known as RDKit. 
+
+Simultaneously, the website code uses the inputted disease to parse the internet for information on that disease. The final output is a theoretical drug structure that could be used to treat that disease as well as information on the disease itself and the drugs that are currently being used to treat it. 
+
+            </p>
+        </div>
+    </div>
+    <!-- Text input box with submit button -->
+    <!-- <div id="input">
+        <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">
+        <button type="submit" value="sub" id="submit-button">Submit</button>
+    </div>     -->
+    </div>
+    </div> 
+
+<!--    <div class="search-bar">
+        <input type="text" placeholder="What medical function do you want this drug to have?">
+        <button type="submit">What medical function do you want this drug to have?</button>
+    </div>
+-->
+    <script>
+        function myFunction() {
+            var dropdownContent = document.getElementById("myDropdown");
+            dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+    }   
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+<!--Practice with making a table:-->
+
+
+
+
+
+
+
+
+<!--Start Links-->

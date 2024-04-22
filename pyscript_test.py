@@ -92,7 +92,7 @@ def run_program(event):
                 
     output_div = document.getElementById("output")
     output_div.textContent = output
-    
+
     # def confirmation(word):
     #     while True:
     #         # print(word)

@@ -155,8 +155,8 @@ def run_program(event):
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")
-        output_div.textContent = user_input
-        output_div.textContent = greeting
+        # output_div.textContent = user_input
+        # output_div.textContent = greeting
         output_div.textContent = website_links[0]
 
 run_program(None)

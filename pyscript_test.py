@@ -4,10 +4,10 @@
 
 from pyscript import document
 # await micropip.install("beautifulsoup4")
-# import requests
+import requests
 from bs4 import BeautifulSoup
-# import pandas as pd
-# import webbrowser
+import pandas as pd
+import webbrowser
 # import rdkit
 # from rdkit import Chem
 # import plotly.express as px
@@ -20,7 +20,6 @@ from bs4 import BeautifulSoup
 
 
 def run_program(event):
-    # await micropip.install("beautifulsoup4")
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -62,37 +61,37 @@ def run_program(event):
                  'coronavirus': "https://en.wikipedia.org/wiki/COVID-19",
                  'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
 
-    # word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
-    #                 'acquired immunodeficiency syndrome','dementia','diabetes','depression','anxiety','hemorrhoid','yeast infection','lupus','shingles',
-    #                 'psoriasis','bronchitis','pneumonia','strep','flu', 'hbp',
-    #                 'high blood pressure','hypertension','cancer','diarrhea','covid','coronavirus','arthritis']
-    # # Get the input field value
-    # user_input = document.getElementById("name").value
-    # user_input = user_input.lower()
-    # output = user_input
-    # for disease in word_bank_diseases:
-    #     if disease in output:
-    #         # user_input_split = confirmation(disease)
-    #         word = disease
+    word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
+                    'acquired immunodeficiency syndrome','dementia','diabetes','depression','anxiety','hemorrhoid','yeast infection','lupus','shingles',
+                    'psoriasis','bronchitis','pneumonia','strep','flu', 'hbp',
+                    'high blood pressure','hypertension','cancer','diarrhea','covid','coronavirus','arthritis']
+    # Get the input field value
+    user_input = document.getElementById("name").value
+    user_input = user_input.lower()
+    output = user_input
+    for disease in word_bank_diseases:
+        if disease in output:
+            # user_input_split = confirmation(disease)
+            word = disease
             
-    #         url = website_links[word]
-    #         response = requests.get(url)
+            url = website_links[word]
+            response = requests.get(url)
 
-    #         if response.status_code == 200:
-    #             soup = BeautifulSoup(response.text, 'html.parser')
-    #             title = soup.title.string
-    #             output = f'Title: {title}'
-    #             soup = BeautifulSoup(response.text, 'html.parser')
-    #             paragraphs = soup.find_all('p')
-    #             info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
-    #             output = output + '\n' + info_text + '\n' + f'Website Link: {url}'
-    #             # print("Title:", title)
-    #         else:
-    #             # print("Failed to retrieve the webpage. Status code:", response.status_code)
-    #             output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                title = soup.title.string
+                output = f'Title: {title}'
+                soup = BeautifulSoup(response.text, 'html.parser')
+                paragraphs = soup.find_all('p')
+                info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
+                output = output + '\n' + info_text + '\n' + f'Website Link: {url}'
+                # print("Title:", title)
+            else:
+                # print("Failed to retrieve the webpage. Status code:", response.status_code)
+                output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
                 
-    # output_div = document.getElementById("output")
-    # output_div.textContent = output
+    output_div = document.getElementById("output")
+    output_div.textContent = output
     
     # def confirmation(word):
     #     while True:
@@ -155,15 +154,15 @@ def run_program(event):
     #             print(f"Enter yes or no")
     # def open_link():
     #     webbrowser.open(website_links[word])
-    user_input = document.getElementById("name").value
-    if user_input != "":
+    # user_input = document.getElementById("name").value
+    # if user_input != "":
         
-        # greeting = f'Hello, {user_input}! Welcome to the Website! inter'
-        greeting = website_links['hiv']
+    #     # greeting = f'Hello, {user_input}! Welcome to the Website! inter'
+    #     greeting = website_links['hiv']
         
-        # Display the greeting in the output div
-        output_div = document.getElementById("output")
-        # output_div.textContent = user_input
-        output_div.textContent = greeting
+    #     # Display the greeting in the output div
+    #     output_div = document.getElementById("output")
+    #     # output_div.textContent = user_input
+    #     output_div.textContent = greeting
 
 run_program(None)

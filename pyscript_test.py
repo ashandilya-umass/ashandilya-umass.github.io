@@ -152,8 +152,8 @@ def run_program(event):
     user_input = document.getElementById("name").value
     if user_input != "":
         
-        # greeting = f'Hello, {user_input}! Welcome to the Website!'
-        greeting = f'{website_links['alzheimer']}'
+        greeting = f'Hello, {user_input}! Welcome to the Website!'
+        # greeting = f'{website_links['alzheimer']}'
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")

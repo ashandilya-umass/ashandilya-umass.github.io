@@ -61,7 +61,7 @@ def run_program(event):
     #                 'psoriasis','bronchitis','pneumonia','strep','flu', 'hbp',
     #                 'high blood pressure','hypertension','cancer','diarrhea','covid','coronavirus','arthritis']
     # # Get the input field value
-    user_input = document.getElementById("name").value
+    # user_input = document.getElementById("name").value
     # user_input = user_input.lower()
     # output = user_input
     # for disease in word_bank_diseases:
@@ -149,14 +149,15 @@ def run_program(event):
     #             print(f"Enter yes or no")
     # def open_link():
     #     webbrowser.open(website_links[word])
+    user_input = document.getElementById("name").value
     if user_input != "":
         
-        greeting = f'Hello, {user_input}! Welcome to the Website!'
+        # greeting = f'Hello, {user_input}! Welcome to the Website!'
+        greeting = f'{website_links['alzheimer']}'
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")
         # output_div.textContent = user_input
-        # output_div.textContent = greeting
-        output_div.textContent = website_links['alzheimer']
+        output_div.textContent = greeting
 
 run_program(None)

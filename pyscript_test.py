@@ -7,7 +7,7 @@ from pyscript import document
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import webbrowser
+# import webbrowser
 # import rdkit
 # from rdkit import Chem
 # import plotly.express as px

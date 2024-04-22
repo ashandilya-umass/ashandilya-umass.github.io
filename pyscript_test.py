@@ -150,11 +150,13 @@ def run_program(event):
     # def open_link():
     #     webbrowser.open(website_links[word])
     if user_input != "":
-        print(user_input)
+        
         greeting = f'Hello, {user_input}! Welcome to the Website!'
-        print(website_links[0])
+        
         # Display the greeting in the output div
         output_div = document.getElementById("output")
+        output_div.textContent = user_input
         output_div.textContent = greeting
+        output_div.textContent = website_links[0]
 
 run_program(None)

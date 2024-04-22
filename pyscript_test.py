@@ -3,8 +3,9 @@
 
 
 from pyscript import document
+# await micropip.install("beautifulsoup4")
 # import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 # import pandas as pd
 # import webbrowser
 # import rdkit
@@ -18,7 +19,8 @@ from bs4 import BeautifulSoup
 
 
 
-def run_program(event):
+async def run_program(event):
+    await micropip.install("beautifulsoup4")
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",

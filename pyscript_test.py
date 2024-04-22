@@ -5,6 +5,8 @@
 from pyscript import document
 # await micropip.install("beautifulsoup4")
 import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup
 import pandas as pd
 # import webbrowser
@@ -75,7 +77,7 @@ def run_program(event):
             word = disease
             
             url = website_links[word]
-            response = requests.get(url)
+            response = requests.get(url, verify = True)
 
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')

@@ -1,5 +1,5 @@
-await micropip.install("requests")
-await micropip.install("bs4")
+micropip.install("requests")
+micropip.install("bs4")
 
 
 from pyscript import document

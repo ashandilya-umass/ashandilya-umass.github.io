@@ -157,6 +157,6 @@ def run_program(event):
         output_div = document.getElementById("output")
         # output_div.textContent = user_input
         # output_div.textContent = greeting
-        output_div.textContent = website_links[0]
+        output_div.textContent = website_links['alzheimer']
 
 run_program(None)

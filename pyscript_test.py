@@ -153,7 +153,7 @@ def run_program(event):
     if user_input != "":
         
         # greeting = f'Hello, {user_input}! Welcome to the Website! inter'
-        greeting = f'{website_links['hiv']}'
+        greeting = website_links['hiv']
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")

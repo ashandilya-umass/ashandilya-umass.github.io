@@ -1,6 +1,6 @@
 from pyscript import document
-# import requests
-# from bs4 import BeautifulSoup
+import requests
+from bs4 import BeautifulSoup
 # import pandas as pd
 # import webbrowser
 # import rdkit
@@ -15,46 +15,46 @@ from pyscript import document
 
 
 def run_program(event):
-    # website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    #              'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    #              'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    #              'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    #              'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    #              'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'AIDs': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'acquired immunodeficiency syndrome': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    #              'dementia': "https://en.wikipedia.org/wiki/Dementia",
-    #              'diabetes': "https://en.wikipedia.org/wiki/Diabetes",
-    #              'depression': "https://en.wikipedia.org/wiki/Depression_(mood)",
-    #              'anxiety': "https://en.wikipedia.org/wiki/Anxiety",
-    #              'hemorrhoid': "https://en.wikipedia.org/wiki/Hemorrhoid",
-    #              'hemerrhoids': "https://en.wikipedia.org/wiki/Hemorrhoid",
-    #              'yeast infection': "https://en.wikipedia.org/wiki/Candidiasis",
-    #              'lupus': "https://en.wikipedia.org/wiki/Lupus",
-    #              'shingles': "https://en.wikipedia.org/wiki/Shingles",
-    #              'psoriasis': "https://en.wikipedia.org/wiki/Psoriasis",
-    #              'bronchitis': "https://en.wikipedia.org/wiki/Bronchitis",
-    #              'pneumonia': "https://en.wikipedia.org/wiki/Pneumonia",
-    #              'strep': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
-    #              'strep throat': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
-    #              'streptococcus pneumonia': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
-    #              'streptococcus pharyngitis': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
-    #              'flu': "https://en.wikipedia.org/wiki/Influenza",
-    #              'the flu': "https://en.wikipedia.org/wiki/Influenza",
-    #              'influenze': "https://en.wikipedia.org/wiki/Influenza",
-    #             ' hbp': "https://en.wikipedia.org/wiki/Hypertension",
-    #              'high blood pressure': "https://en.wikipedia.org/wiki/Hypertension",
-    #              'hypertension': "https://en.wikipedia.org/wiki/Hypertension",
-    #              'cancer': "https://en.wikipedia.org/wiki/Cancer",
-    #              'diarrhea': "https://en.wikipedia.org/wiki/Diarrhea",
-    #              'covid': "https://en.wikipedia.org/wiki/COVID-19",
-    #              'covid-19': "https://en.wikipedia.org/wiki/COVID-19",
-    #              'coronavirus': "https://en.wikipedia.org/wiki/COVID-19",
-    #              'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
+    website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+                 'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+                 'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+                 'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+                 'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+                 'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'AIDs': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'acquired immunodeficiency syndrome': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'dementia': "https://en.wikipedia.org/wiki/Dementia",
+                 'diabetes': "https://en.wikipedia.org/wiki/Diabetes",
+                 'depression': "https://en.wikipedia.org/wiki/Depression_(mood)",
+                 'anxiety': "https://en.wikipedia.org/wiki/Anxiety",
+                 'hemorrhoid': "https://en.wikipedia.org/wiki/Hemorrhoid",
+                 'hemerrhoids': "https://en.wikipedia.org/wiki/Hemorrhoid",
+                 'yeast infection': "https://en.wikipedia.org/wiki/Candidiasis",
+                 'lupus': "https://en.wikipedia.org/wiki/Lupus",
+                 'shingles': "https://en.wikipedia.org/wiki/Shingles",
+                 'psoriasis': "https://en.wikipedia.org/wiki/Psoriasis",
+                 'bronchitis': "https://en.wikipedia.org/wiki/Bronchitis",
+                 'pneumonia': "https://en.wikipedia.org/wiki/Pneumonia",
+                 'strep': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+                 'strep throat': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+                 'streptococcus pneumonia': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+                 'streptococcus pharyngitis': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+                 'flu': "https://en.wikipedia.org/wiki/Influenza",
+                 'the flu': "https://en.wikipedia.org/wiki/Influenza",
+                 'influenze': "https://en.wikipedia.org/wiki/Influenza",
+                ' hbp': "https://en.wikipedia.org/wiki/Hypertension",
+                 'high blood pressure': "https://en.wikipedia.org/wiki/Hypertension",
+                 'hypertension': "https://en.wikipedia.org/wiki/Hypertension",
+                 'cancer': "https://en.wikipedia.org/wiki/Cancer",
+                 'diarrhea': "https://en.wikipedia.org/wiki/Diarrhea",
+                 'covid': "https://en.wikipedia.org/wiki/COVID-19",
+                 'covid-19': "https://en.wikipedia.org/wiki/COVID-19",
+                 'coronavirus': "https://en.wikipedia.org/wiki/COVID-19",
+                 'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
 
     # word_bank_diseases = ['alzheimer', 'hiv','human immunodeficiency virus','aids',
     #                 'acquired immunodeficiency syndrome','dementia','diabetes','depression','anxiety','hemorrhoid','yeast infection','lupus','shingles',
@@ -152,8 +152,8 @@ def run_program(event):
     user_input = document.getElementById("name").value
     if user_input != "":
         
-        greeting = f'Hello, {user_input}! Welcome to the Website! inter'
-        # greeting = f'{website_links['hiv']}'
+        # greeting = f'Hello, {user_input}! Welcome to the Website! inter'
+        greeting = f'{website_links['hiv']}'
         
         # Display the greeting in the output div
         output_div = document.getElementById("output")

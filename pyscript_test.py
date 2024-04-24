@@ -35,7 +35,7 @@ async def run_program(event):
                  'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
-                 'hiv': "http://en.wikipedia.org/wiki/HIV/AIDS",
+                 'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",
@@ -77,23 +77,23 @@ async def run_program(event):
     # Get the input field value
     user_input = document.getElementById("name").value
     user_input = user_input.lower()
-    output = user_input
-    for disease in word_bank_diseases:
-        if disease in output:
+    # output = user_input
+    # for disease in word_bank_diseases:
+    #     if disease in output:
             # user_input_split = confirmation(disease)
-            word = disease
+    word = user_input
             
-            url = website_links[word]
+    url = website_links[word]
 
-            async def fetch_website(url):
-                response = await pyfetch.fetch(url)
-                if response.status == 200:
-                    html = await response.text()
-                    return html
-                else:
-                    return None
+    async def fetch_website(url):
+        response = await pyfetch.fetch(url)
+        if response.status == 200:
+            html = await response.text()
+            return html
+        else:
+            return None
 
-            output = fetch_website(url)
+    output = fetch_website(url)
             # response = requests.get(url, verify = True)
 
             # if response.status_code == 200:

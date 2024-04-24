@@ -93,7 +93,7 @@ async def run_program(event):
         else:
             return None
 
-    output = fetch_website(url)
+    output = await fetch_website(url)
             # response = requests.get(url, verify = True)
 
             # if response.status_code == 200:
@@ -199,4 +199,4 @@ async def run_program(event):
     #     # output_div.textContent = user_input
     #     output_div.textContent = greeting
 
-run_program(None)
+await run_program(None)

@@ -86,7 +86,7 @@ async def run_program(event):
     url = website_links[word]
 
     async def fetch_website(url):
-        response = await pyfetch.fetch(url)
+        response = await pyfetch(url)
         if response.status == 200:
             html = await response.text()
             print(html)

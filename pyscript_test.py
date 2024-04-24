@@ -26,7 +26,7 @@ import pandas as pd
 async def run_program(event):
     import micropip
     micropip.install("wikipediaapi")
-    import wikipediaapi
+    # import wikipediaapi
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",

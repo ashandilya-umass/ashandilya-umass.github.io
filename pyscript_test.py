@@ -9,7 +9,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup
 import pandas as pd
-import micropip
+# import micropip
 # import wikipediaapi
 # import webbrowser
 # import rdkit
@@ -24,6 +24,7 @@ import micropip
 
 
 async def run_program(event):
+    import micropip
     micropip.install("wikipediaapi")
     import wikipediaapi
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",

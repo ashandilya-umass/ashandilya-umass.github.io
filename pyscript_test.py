@@ -9,7 +9,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup
 import pandas as pd
-import wikipediaapi
+# import wikipediaapi
 # import webbrowser
 # import rdkit
 # from rdkit import Chem

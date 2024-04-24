@@ -35,7 +35,7 @@ async def run_program(event):
                  'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
-                 'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'hiv': "http://en.wikipedia.org/wiki/HIV/AIDS",
                  'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",

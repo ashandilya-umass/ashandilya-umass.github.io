@@ -23,9 +23,9 @@ import micropip
 
 
 
-def run_program(event):
+async def run_program(event):
     # await micropip.install("wikipedia-api")
-    micropip.install("Wikipedia_API-0.6.0-py3-none-any.whl")
+    await micropip.install("Wikipedia_API-0.6.0-py3-none-any.whl")
     import wikipediaapi
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",

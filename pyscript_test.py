@@ -201,4 +201,4 @@ async def run_program(event):
     #     # output_div.textContent = user_input
     #     output_div.textContent = greeting
 
-await run_program(None)
+run_program(None)

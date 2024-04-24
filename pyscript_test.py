@@ -10,7 +10,8 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup
 import pandas as pd
 import micropip
-import pyfetch
+# import pyfetch
+from pyodide.http import pyfetch
 # import wikipediaapi
 # import webbrowser
 # import rdkit

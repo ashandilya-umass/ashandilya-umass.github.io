@@ -89,6 +89,8 @@ async def run_program(event):
         response = await pyfetch.fetch(url)
         if response.status == 200:
             html = await response.text()
+            print(html)
+            print("Hello")
             return html
         else:
             return None

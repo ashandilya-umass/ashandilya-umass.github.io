@@ -25,15 +25,15 @@ import micropip
 
 async def run_program(event):
     # await micropip.install("wikipedia-api")
-    await micropip.install("Wikipedia_API-0.6.0-py3-none-any.whl")
-    import wikipediaapi
+    # await micropip.install("Wikipedia_API-0.6.0-py3-none-any.whl")
+    # import wikipediaapi
     website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
                  'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
-                 'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
+                 'hiv': "http://en.wikipedia.org/wiki/HIV/AIDS",
                  'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
                  'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",
@@ -81,36 +81,36 @@ async def run_program(event):
             # user_input_split = confirmation(disease)
             word = disease
             
-            # url = website_links[word]
-            # response = requests.get(url, verify = True)
+            url = website_links[word]
+            response = requests.get(url, verify = True)
 
-            # if response.status_code == 200:
-            #     soup = BeautifulSoup(response.text, 'html.parser')
-            #     title = soup.title.string
-            #     output = f'Title: {title}'
-            #     soup = BeautifulSoup(response.text, 'html.parser')
-            #     paragraphs = soup.find_all('p')
-            #     info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
-            #     output = output + '\n' + info_text + '\n' + f'Website Link: {url}'
-            #     # print("Title:", title)
-            # else:
-            #     # print("Failed to retrieve the webpage. Status code:", response.status_code)
-            #     output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                title = soup.title.string
+                output = f'Title: {title}'
+                soup = BeautifulSoup(response.text, 'html.parser')
+                paragraphs = soup.find_all('p')
+                info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
+                output = output + '\n' + info_text + '\n' + f'Website Link: {url}'
+                # print("Title:", title)
+            else:
+                # print("Failed to retrieve the webpage. Status code:", response.status_code)
+                output = f'Failed to retrieve the webpage. Status code: {response.status_code}'
 
-            wiki_wiki = wikipediaapi.Wikipedia(
-                user_agent='MyProjectName (merlin@example.com)',
-                    language='en',
-                    extract_format=wikipediaapi.ExtractFormat.WIKI
-            )
+            # wiki_wiki = wikipediaapi.Wikipedia(
+            #     user_agent='MyProjectName (merlin@example.com)',
+            #         language='en',
+            #         extract_format=wikipediaapi.ExtractFormat.WIKI
+            # )
             
-            p_wiki = wiki_wiki.page(word)
-            # print(p_wiki.text)
+            # p_wiki = wiki_wiki.page(word)
+            # # print(p_wiki.text)
             
-            wiki_text = p_wiki.text
+            # wiki_text = p_wiki.text
             
-            paras = wiki_text.split('\n')
+            # paras = wiki_text.split('\n')
 
-            output = paras[0]
+            # output = paras[0]
                             
     output_div = document.getElementById("output")
     output_div.textContent = output

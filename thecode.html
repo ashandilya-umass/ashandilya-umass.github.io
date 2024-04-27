@@ -161,7 +161,25 @@
                 <a href="thescience.html" class="dropdown-item">The Science</a>
                 <a href="about.html" class="dropdown-item">About</a>
             </div>
+            <script>
+                async function fetchPythonFileContent() {
+                    const response = await fetch('your_python_file.py');
+                    const text = await response.text();
+                    const contentDiv = document.createElement('div');
+                    contentDiv.innerHTML = text;
+                    document.body.appendChild(contentDiv);
+                }
+        
+                // Call the function when the page loads
+                window.onload = fetchPythonFileContent;
+            </script>
+        </head>
+        <body>
+            <!-- Content will be added here -->
+        </body>
+
         </div>
+        
     <!-- Text input box with submit button -->
     <!-- <div id="input">
         <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">

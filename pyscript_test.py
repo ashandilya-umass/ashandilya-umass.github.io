@@ -220,6 +220,7 @@ website_links = {
     # Add other diseases here
 }
 
+
 async def fetch_website(url):
     response = await pyfetch(url)
     if response.status == 200:

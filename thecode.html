@@ -230,7 +230,7 @@
         import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
 
         const config = {};
-        const pyscriptInstance = new pyscript.PyScript(config);
+        pyscript.init(config);
 
         fetch('./Thesis.py')
             .then(response => response.text())
@@ -240,3 +240,4 @@
     </script>
 </body>
 </html>
+

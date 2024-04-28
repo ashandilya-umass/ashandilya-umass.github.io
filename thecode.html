@@ -205,7 +205,6 @@
 
 
 
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -213,24 +212,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Code Viewer</title>
-    <!-- Include Prism CSS for syntax highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.2/core.css">
+    <style>
+        #code-container {
+            height: 400px; /* Set the height of the container */
+            overflow: auto; /* Make the container scrollable */
+            padding: 10px; /* Add some padding for better readability */
+        }
+    </style>
 </head>
 <body>
-    <div id="code-container"></div>
-    <!-- Include PyScript and Prism JS for code highlighting -->
-    <script src="https://cdn.jsdelivr.net/npm/pyscript@0.7.0/pyscript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script>
-        // Load the Python code from the file
-        pyscript.load("Thesis.py", function(code) {
-            var codeElement = document.getElementById("code-container");
-            codeElement.innerText = code;
+    <div id="code-container">
+        <pre id="code"></pre>
+    </div>
+    <script type="module">
+        import { PyScript } from 'https://pyscript.net/releases/2024.3.2/core.js';
 
-            // Highlight the code
-            Prism.highlightElement(codeElement);
-        });
+        const config = {};
+        const pyscript = new PyScript(config);
+
+        fetch('./Thesis.py')
+            .then(response => response.text())
+            .then(pythonCode => {
+                document.getElementById('code').innerText = pythonCode;
+            });
     </script>
 </body>
 </html>
+
+
 

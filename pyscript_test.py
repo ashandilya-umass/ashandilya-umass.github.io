@@ -205,8 +205,6 @@
 
 
 from pyscript import document
-import tkinter as tk
-import webbrowser
 
 website_links = {
     'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -219,23 +217,10 @@ async def run_program(event):
     user_input = document.getElementById("name").value.lower()
     if user_input in website_links:
         url = website_links[user_input]
-
-        window = tk.Tk()
-        window.title(f"More information on {user_input.capitalize()}")
-        window.geometry("800x600")
-
-        label = tk.Label(window, text=f"For more information click here:", fg="black", font=("Arial", 12))
-        label.pack(pady=10)
-
-        def open_link(event):
-            webbrowser.open(url)
-
-        link_label = tk.Label(window, text="Wikipedia Page", fg="blue", cursor="hand2")
-        link_label.pack(pady=10)
-        link_label.bind("<Button-1>", open_link)
-
-        window.mainloop()
+        output_div = document.getElementById("output")
+        output_div.textContent = f"For more information, click <a href='{url}' target='_blank'>here</a>."
     else:
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
 document.getElementById("submit").addEventListener("click", run_program)
+

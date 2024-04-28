@@ -205,68 +205,37 @@
 
 
 from pyscript import document
-from bs4 import BeautifulSoup
-import pandas as pd
 import tkinter as tk
-from tkinter import scrolledtext
-from pyodide.http import pyfetch
-import micropip
+import webbrowser
 
-async def install_tkinter():
-    await micropip.install("tkinter")
-
-async def fetch_website(url):
-    response = await pyfetch(url)
-    if response.status == 200:
-        return await response.text()
-    else:
-        return None
+website_links = {
+    'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+    'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
+    'dementia': "https://en.wikipedia.org/wiki/Dementia",
+    # Add other diseases here
+}
 
 async def run_program(event):
-    # Install tkinter if it's not already installed
-    try:
-        import tkinter as tk
-    except ImportError:
-        await install_tkinter()
-
     user_input = document.getElementById("name").value.lower()
-    website_links = {
-        'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-        'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
-        'dementia': "https://en.wikipedia.org/wiki/Dementia",
-        # Add other diseases here
-    }
-
     if user_input in website_links:
         url = website_links[user_input]
-        html = await fetch_website(url)
-        if html:
-            soup = BeautifulSoup(html, 'html.parser')
-            title = soup.title.string
-            paragraphs = soup.find_all('p')
-            info_text = "\n".join(paragraph.get_text() for paragraph in paragraphs)
-            
-            window = tk.Tk()
-            window.title(f"More information on {user_input.capitalize()}")
-            window.geometry("800x600")
 
-            text_area = scrolledtext.ScrolledText(window, wrap=tk.WORD, width=100, height=30)
-            text_area.insert(tk.INSERT, info_text)
-            text_area.pack(padx=10, pady=10)
+        window = tk.Tk()
+        window.title(f"More information on {user_input.capitalize()}")
+        window.geometry("800x600")
 
-            link_label = tk.Label(window, text="Click here to visit Wikipedia.com", fg="blue", cursor="hand2")
-            link_label.pack(pady=10)
+        label = tk.Label(window, text=f"For more information click here:", fg="black", font=("Arial", 12))
+        label.pack(pady=10)
 
-            def open_link(event):
-                webbrowser.open(website_links[user_input])
+        def open_link(event):
+            webbrowser.open(url)
 
-            link_label.bind("<Button-1>", open_link)
+        link_label = tk.Label(window, text="Wikipedia Page", fg="blue", cursor="hand2")
+        link_label.pack(pady=10)
+        link_label.bind("<Button-1>", open_link)
 
-            window.mainloop()
-        else:
-            output_div.textContent = "Failed to retrieve the webpage."
+        window.mainloop()
     else:
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
 document.getElementById("submit").addEventListener("click", run_program)
-

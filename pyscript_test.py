@@ -206,12 +206,46 @@
 
 from pyscript import document
 
-website_links = {
-    'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    'dementia': "https://en.wikipedia.org/wiki/Dementia",
-    # Add other diseases here
-}
+website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+             'alzheimers': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+             'alzheimer\'s': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+             'alzheimers disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+             'alzheimer\'s disease': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+             'HIV': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'hiv': "http://en.wikipedia.org/wiki/HIV/AIDS",
+             'human immunodeficiency virus': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'aids': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'AIDS': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'AIDs': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'acquired immunodeficiency syndrome': "https://en.wikipedia.org/wiki/HIV/AIDS",
+             'dementia': "https://en.wikipedia.org/wiki/Dementia",
+             'diabetes': "https://en.wikipedia.org/wiki/Diabetes",
+             'depression': "https://en.wikipedia.org/wiki/Depression_(mood)",
+             'anxiety': "https://en.wikipedia.org/wiki/Anxiety",
+             'hemorrhoid': "https://en.wikipedia.org/wiki/Hemorrhoid",
+             'hemerrhoids': "https://en.wikipedia.org/wiki/Hemorrhoid",
+             'yeast infection': "https://en.wikipedia.org/wiki/Candidiasis",
+             'lupus': "https://en.wikipedia.org/wiki/Lupus",
+             'shingles': "https://en.wikipedia.org/wiki/Shingles",
+             'psoriasis': "https://en.wikipedia.org/wiki/Psoriasis",
+             'bronchitis': "https://en.wikipedia.org/wiki/Bronchitis",
+             'pneumonia': "https://en.wikipedia.org/wiki/Pneumonia",
+             'strep': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+             'strep throat': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+             'streptococcus pneumonia': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+             'streptococcus pharyngitis': "https://en.wikipedia.org/wiki/Streptococcal_pharyngitis",
+             'flu': "https://en.wikipedia.org/wiki/Influenza",
+             'the flu': "https://en.wikipedia.org/wiki/Influenza",
+             'influenze': "https://en.wikipedia.org/wiki/Influenza",
+            ' hbp': "https://en.wikipedia.org/wiki/Hypertension",
+             'high blood pressure': "https://en.wikipedia.org/wiki/Hypertension",
+             'hypertension': "https://en.wikipedia.org/wiki/Hypertension",
+             'cancer': "https://en.wikipedia.org/wiki/Cancer",
+             'diarrhea': "https://en.wikipedia.org/wiki/Diarrhea",
+             'covid': "https://en.wikipedia.org/wiki/COVID-19",
+             'covid-19': "https://en.wikipedia.org/wiki/COVID-19",
+             'coronavirus': "https://en.wikipedia.org/wiki/COVID-19",
+             'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
 
 
 async def run_program(event):

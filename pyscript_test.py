@@ -248,6 +248,7 @@ website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disea
              'arthritis': "https://en.wikipedia.org/wiki/Arthritis"}
 
 
+
 async def run_program(event):
     user_input = document.getElementById("name").value.lower()
     if user_input in website_links:

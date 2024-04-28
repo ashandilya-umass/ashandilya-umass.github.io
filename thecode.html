@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEDAICINE - Honors Thesis - Ashwin Shandilya</title>
+    <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.2/core.css">
     <style>
         html, body {
             margin: 0;
@@ -143,6 +146,12 @@
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             z-index: 1;
         }
+
+        #code-container {
+            height: 400px; /* Set the height of the container */
+            overflow: auto; /* Make the container scrollable */
+            padding: 10px; /* Add some padding for better readability */
+        }
     </style>
 </head>
 <body>
@@ -161,22 +170,18 @@
                 <a href="thescience.html" class="dropdown-item">The Science</a>
                 <a href="about.html" class="dropdown-item">About</a>
             </div>
-            <script>
-                async function fetchPythonFileContent() {
-                    const response = await fetch('thesis.py');
-                    const text = await response.text();
-                    const contentDiv = document.createElement('div');
-                    contentDiv.innerHTML = text;
-                    document.body.appendChild(contentDiv);
-                }
+            <div id="code-container">
+                <pre id="code"></pre>
+            </div>
+            <script type="module">
+                import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
         
-                window.onload = fetchPythonFileContent();
+                fetch('./Thesis.py')
+                    .then(response => response.text())
+                    .then(pythonCode => {
+                        document.getElementById('code').innerText = pythonCode;
+                    });
             </script>
-        </head>
-        <body>
-            This is the Thesis Code
-        </body>
-
         </div>
     </div>
     </div> 

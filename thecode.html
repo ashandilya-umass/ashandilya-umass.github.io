@@ -170,16 +170,16 @@
                 <a href="thescience.html" class="dropdown-item">The Science</a>
                 <a href="about.html" class="dropdown-item">About</a>
             </div>
-            <!-- <div id="code-container">
+            <div id="code-container">
                 <pre id="code"></pre>
-            </div> -->
+            </div>
             <script type="module">
                 import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
         
                 fetch('./Thesis.py')
                     .then(response => response.text())
                     .then(pythonCode => {
-                        document.getElementById('code').innerText = pythonCode;
+                        document.getElementById('content-box').innerText = pythonCode;
                     });
             </script>
         </div>

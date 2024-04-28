@@ -210,16 +210,10 @@ import pandas as pd
 import tkinter as tk
 from tkinter import scrolledtext
 from pyodide.http import pyfetch
-import wikipediaapi
-import webbrowser
+import micropip
 
-website_links = {
-    'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
-    'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
-    'dementia': "https://en.wikipedia.org/wiki/Dementia",
-    # Add other diseases here
-}
-
+async def install_tkinter():
+    await micropip.install("tkinter")
 
 async def fetch_website(url):
     response = await pyfetch(url)
@@ -229,7 +223,20 @@ async def fetch_website(url):
         return None
 
 async def run_program(event):
+    # Install tkinter if it's not already installed
+    try:
+        import tkinter as tk
+    except ImportError:
+        await install_tkinter()
+
     user_input = document.getElementById("name").value.lower()
+    website_links = {
+        'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
+        'hiv': "https://en.wikipedia.org/wiki/HIV/AIDS",
+        'dementia': "https://en.wikipedia.org/wiki/Dementia",
+        # Add other diseases here
+    }
+
     if user_input in website_links:
         url = website_links[user_input]
         html = await fetch_website(url)
@@ -262,3 +269,4 @@ async def run_program(event):
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
 document.getElementById("submit").addEventListener("click", run_program)
+

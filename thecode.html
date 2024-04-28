@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -170,30 +170,17 @@
                     document.body.appendChild(contentDiv);
                 }
         
-                // Call the function when the page loads
                 window.onload = fetchPythonFileContent();
             </script>
         </head>
         <body>
-            <!-- Content will be added here -->
             This is the Thesis Code
         </body>
 
         </div>
-
-    <!-- Text input box with submit button -->
-    <!-- <div id="input">
-        <input type="text" placeholder="What medical function do you want this drug to have?" size="100" width="100">
-        <button type="submit" value="sub" id="submit-button">Submit</button>
-    </div>     -->
     </div>
     </div> 
 
-<!--    <div class="search-bar">
-        <input type="text" placeholder="What medical function do you want this drug to have?">
-        <button type="submit">What medical function do you want this drug to have?</button>
-    </div>
--->
 <script>
     function myFunction() {
         var dropdownContent = document.getElementById("myDropdown");
@@ -214,16 +201,30 @@
     }
 </script>
 </body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pyscript/0.7.0/pyscript.min.js"></script>
+</head>
+<body>
+    <div id="code-container"></div>
+    <script>
+        // Load the Python code from the file
+        pyscript.load("Thesis.py", function(code) {
+            var codeElement = document.getElementById("code-container");
+            codeElement.innerText = code;
+
+            // Highlight the code
+            Prism.highlightElement(codeElement);
+        });
+    </script>
+</body>
 </html>
-
-
-<!--Practice with making a table:-->
-
-
-
-
-
-
-
-
-<!--Start Links-->

@@ -213,6 +213,7 @@ website_links = {
     # Add other diseases here
 }
 
+
 async def run_program(event):
     user_input = document.getElementById("name").value.lower()
     if user_input in website_links:

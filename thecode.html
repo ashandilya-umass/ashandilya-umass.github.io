@@ -165,31 +165,36 @@
 <body>
     <div class="overlay">
         <div class="content-box">
-            <div class="dropdown">
-                <button class="dropdown-btn" onclick="myFunction()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-                </svg>
-                </button>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="index.html" class="dropdown-item">Home</a>
-                <a href="drawingstructures.html" class="dropdown-item">Drawing Structures</a>
-                <a href="howitworks.html" class="dropdown-item">How it Works</a>
-                <a href="thescience.html" class="dropdown-item">The Science</a>
-                <a href="about.html" class="dropdown-item">About</a>
+            <div class = "right">
+                <div class="dropdown">
+                    <button class="dropdown-btn" onclick="myFunction()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                    </button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a href="index.html" class="dropdown-item">Home</a>
+                    <a href="drawingstructures.html" class="dropdown-item">Drawing Structures</a>
+                    <a href="howitworks.html" class="dropdown-item">How it Works</a>
+                    <a href="thescience.html" class="dropdown-item">The Science</a>
+                    <a href="about.html" class="dropdown-item">About</a>
+                </div>
             </div>
-            <div id="code-container">
-                <pre id="code"></pre>
+            
+            <div class = "left">
+                <div id="code-container">
+                    <pre id="code"></pre>
+                </div>
+                <script type="module">
+                    import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
+                
+                    fetch('./Thesis.py')
+                        .then(response => response.text())
+                        .then(pythonCode => {
+                            document.getElementById('code').innerText = pythonCode;
+                        });
+                </script>
             </div>
-            <script type="module">
-                import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
-        
-                fetch('./Thesis.py')
-                    .then(response => response.text())
-                    .then(pythonCode => {
-                        document.getElementById('code').innerText = pythonCode;
-                    });
-            </script>
         </div>
     </div>
     </div> 

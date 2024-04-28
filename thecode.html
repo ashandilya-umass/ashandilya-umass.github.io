@@ -229,9 +229,6 @@
     <script type="module">
         import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
 
-        const config = {};
-        pyscript.init(config);
-
         fetch('./Thesis.py')
             .then(response => response.text())
             .then(pythonCode => {
@@ -240,4 +237,5 @@
     </script>
 </body>
 </html>
+
 

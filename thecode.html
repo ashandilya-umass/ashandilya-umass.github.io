@@ -227,10 +227,10 @@
         <pre id="code"></pre>
     </div>
     <script type="module">
-        import { PyScript } from 'https://pyscript.net/releases/2024.3.2/core.js';
+        import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
 
         const config = {};
-        const pyscript = new PyScript(config);
+        const pyscriptInstance = new pyscript.PyScript(config);
 
         fetch('./Thesis.py')
             .then(response => response.text())
@@ -240,6 +240,3 @@
     </script>
 </body>
 </html>
-
-
-

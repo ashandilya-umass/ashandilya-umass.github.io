@@ -202,29 +202,29 @@
                 <a href="thescience.html" class="dropdown-item">The Science</a>
                 <a href="about.html" class="dropdown-item">About</a>
             </div>
-            <div class = "left">
+        <div class = "left">
+            <pre id="code"></pre>
+            <!-- <div id="code-container">
                 <pre id="code"></pre>
-                <!-- <div id="code-container">
-                    <pre id="code"></pre>
-                </div> -->
-                <script type="module">
-                    import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
-                
-                    fetch('./Thesis.py')
-                        .then(response => response.text())
-                        .then(pythonCode => {
-                            document.getElementById('code').innerText = pythonCode;
-                        });
-                </script>
+            </div> -->
+            <script type="module">
+                import * as pyscript from 'https://pyscript.net/releases/2024.3.2/core.js';
+            
+                fetch('./Thesis.py')
+                    .then(response => response.text())
+                    .then(pythonCode => {
+                        document.getElementById('code').innerText = pythonCode;
+                    });
+            </script>
+        </div>
+        <div class = "right">
+            <div class = "information">
+                <p>SMILES (Simplified Molecular Input Line Entry System) codes are a compact and simple way to represent the structure of chemical molecules using atomic symbols and ASCII strings. They are crucial in computer software analysis and drawing outputs in the field of chemistry and biochemistry. SMILES codes provide a standardized format that allows scientists and researchers to easily share, store, and analyze molecular structures in databases and publications. One of the key advantages of SMILES codes is their simplicity and readability. Unlike more complex formats, SMILES codes are concise and easy to understand. This makes them ideal for use in computer algorithms and software tools that require rapid processing and manipulation of molecular structures. 
+                    Furthermore, SMILES codes are versatile and can represent a wide range of molecular structures, including complex organic compounds, inorganic molecules, and biomolecules. This versatility makes them valuable in various fields, such as drug discovery, chemical informatics, and computational chemistry, where the ability to quickly and accurately represent molecular structures is essential for research and development.
+                    Overall, SMILES codes play a crucial role in computer software analysis and drawing outputs by providing a standardized and efficient way to represent molecular structures. Their simplicity, readability, and versatility make them indispensable tools in the field of chemistry and biochemistry.
+                </p>
             </div>
-            <div class = "right">
-                <div class = "information">
-                    <p>SMILES (Simplified Molecular Input Line Entry System) codes are a compact and simple way to represent the structure of chemical molecules using atomic symbols and ASCII strings. They are crucial in computer software analysis and drawing outputs in the field of chemistry and biochemistry. SMILES codes provide a standardized format that allows scientists and researchers to easily share, store, and analyze molecular structures in databases and publications. One of the key advantages of SMILES codes is their simplicity and readability. Unlike more complex formats, SMILES codes are concise and easy to understand. This makes them ideal for use in computer algorithms and software tools that require rapid processing and manipulation of molecular structures. 
-                        Furthermore, SMILES codes are versatile and can represent a wide range of molecular structures, including complex organic compounds, inorganic molecules, and biomolecules. This versatility makes them valuable in various fields, such as drug discovery, chemical informatics, and computational chemistry, where the ability to quickly and accurately represent molecular structures is essential for research and development.
-                        Overall, SMILES codes play a crucial role in computer software analysis and drawing outputs by providing a standardized and efficient way to represent molecular structures. Their simplicity, readability, and versatility make them indispensable tools in the field of chemistry and biochemistry.
-                    </p>
-                </div>
-            </div>
+        </div>
         </div>
     </div>
     </div> 

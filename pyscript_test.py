@@ -204,7 +204,7 @@
 # run_program(None)
 
 
-from pyscript import document, create_once_callable
+from pyscript import document
 
 
 website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -255,10 +255,11 @@ async def run_program(event):
     output_div = document.getElementById("output")  # Define output_div here
     if user_input in website_links:
         url = website_links[user_input]
-        output_div.textContent = f"For more information, click <a href='{url}' target='_blank'>here</a>."
+        # output_div.textContent = f"Visit the Wikipedia page for more information:"
+        output_div.innerHTML = f"To visit the Wikipedia page for more information on {user_input} click <a href='{url}' target='_blank'>here</a>"
     else:
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
 document.getElementById("name").addEventListener("click", create_once_callable(run_program))
 
-
+run_program(None)

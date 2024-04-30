@@ -260,6 +260,6 @@ async def run_program(event):
     else:
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
-document.getElementById("name").addEventListener("click", create_once_callable(run_program))
+
 
 run_program(None)

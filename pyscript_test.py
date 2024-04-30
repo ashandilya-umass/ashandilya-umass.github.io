@@ -204,7 +204,7 @@
 # run_program(None)
 
 
-from pyscript import document
+from pyscript import document, create_once_callable
 
 
 website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -259,5 +259,5 @@ async def run_program(event):
     else:
         output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
 
-document.getElementById("name").addEventListener("click", run_program)
+document.getElementById("name").addEventListener("click", create_once_callable(run_program))
 

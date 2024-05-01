@@ -276,5 +276,13 @@
             }
         }
     </script>
+    <script>
+        languagePluginLoader.then(() => {
+            return pyodide.loadPackage(['rdkit']);
+        }).then(() => {
+            // RDKit is now available in the Pyodide environment
+        });
+        
+    </script>
 </body>
 </html>

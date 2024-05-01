@@ -205,6 +205,9 @@
 
 
 from pyscript import document
+from rdkit import Chem
+
+
 
 
 website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disease",
@@ -251,14 +254,16 @@ website_links = {'alzheimer': "https://en.wikipedia.org/wiki/Alzheimer%27s_disea
 
 
 async def run_program(event):
-    user_input = document.getElementById("name").value.lower()
+    # user_input = document.getElementById("name").value.lower()
     output_div = document.getElementById("output")  # Define output_div here
-    if user_input in website_links:
-        url = website_links[user_input]
-        # output_div.textContent = f"Visit the Wikipedia page for more information:"
-        output_div.innerHTML = f"To visit the Wikipedia page for more information on {user_input} click <a href='{url}' target='_blank'>here</a>"
-    else:
-        output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
+    # if user_input in website_links:
+    #     url = website_links[user_input]
+    #     # output_div.textContent = f"Visit the Wikipedia page for more information:"
+    #     output_div.innerHTML = f"To visit the Wikipedia page for more information on {user_input} click <a href='{url}' target='_blank'>here</a>"
+    # else:
+    #     output_div.textContent = f"{user_input.capitalize()} not found in the dictionary."
+    mol = Chem.MolFromSmiles('CCO')
+    output_div.textContent = mol
 
 
 

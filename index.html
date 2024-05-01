@@ -6,25 +6,23 @@
     <title>MEDAICINE - Honors Thesis - Ashwin Shandilya</title>
     <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
     <link rel="stylesheet" src="https://pyscript.net/releases/2024.3.2/core.css">
+
+    <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/pyscript@0.7.0/dist/pyscript.js"></script>
     <script type="module">
-        // Load Pyodide
-        importScripts('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
-
         // Initialize Pyodide and load RDKit
-        async function initPyodide() {
-            await languagePluginLoader;
-            await pyodide.loadPackage(['rdkit']);
-            
-            // RDKit is now available in the Pyodide environment
-            pyodide.runPython(`
-                from rdkit import Chem
-                mol = Chem.MolFromSmiles('CCO')
-                print(Chem.MolToMolBlock(mol))
-            `);
-        }
-
-        // Call the function to initialize Pyodide
-        initPyodide();
+        pyscript.initPyodide({
+            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/'
+        }).then(() => {
+            // Import the main function from the Python file
+            pyscript.loadModule('./script.py').then(module => {
+                const main = module.main;
+                // Call the main function and display the result
+                main().then(result => {
+                    document.getElementById('result').innerText = result;
+                });
+            });
+        });
     </script>
     <!-- <script type="module" src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script> -->
     <style>
@@ -243,6 +241,7 @@
                 <textarea id="name" tabindex="0" data-id="root" rows="1" placeholder="What medical function do you want this drug to have?" class="m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4" style="max-height: 200px; height: 52px; overflow-y: hidden;"></textarea>
                 <button py-click="run_program">submit</button>
             </div>
+            <div id="result"></div>
             <script type="py" src="./pyscript_test.py" config="./pyscript_test.json"></script>
         </div>
         <div class="right">
